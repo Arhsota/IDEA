@@ -15,14 +15,14 @@ public class MainClass {
         animals[3] = new Horse("Mary");
 
         Team[] teamarr = new Team[4];
-        teamarr[0] = new Team("Ком1","Команда",20,1000f);
-        teamarr[1] = new Team("Ком2","Команда",30,1500f);
-        teamarr[2] = new Team("Ком3","Команда",40,2000f);
-        teamarr[3] = new Team("Ком4","Команда",25,1000f);
+        teamarr[0] = new Team("Ком1","Команда",20,3.5f,100f);
+        teamarr[1] = new Team("Ком2","Команда",30,0.4f,1500f);
+        teamarr[2] = new Team("Ком3","Команда",40,0.5f,2000f);
+        teamarr[3] = new Team("Ком4","Команда",40,1.6f,1000f);
 
         Course[] crs = new Course [3];
-        crs[0] = new CWater(30);
-        crs[1] = new CJump(600);
+        crs[0] = new CWater(35);
+        crs[1] = new CJump(1);
         crs[2] = new CCross(600f);
 
         Obstacle[] obs = new Obstacle[3];
@@ -47,7 +47,8 @@ public class MainClass {
         //Инфо о членах команды
         System.out.println("Инфа о членах команды: ");
          for (int j = 0; j < teamarr.length; j++) {
-             System.out.println(teamarr[j].getName()+" "+teamarr[j].getAnimalType()+" возраст "+teamarr[j].getAge());
+             System.out.println(teamarr[j].getName()+" "+teamarr[j].getAnimalType()+"  проплыл "+teamarr[j].getSwim() +
+             " Прыгнул "+teamarr[j].getJump() );
 
          }
 
@@ -58,6 +59,14 @@ public class MainClass {
             }
         }
 
+        for (int i = 0; i < teamarr.length; i++) {
+            if(teamarr[i].isOnDistance()){
+                System.out.println(teamarr[i].getName()+" WIN");
+            }
+            else {
+                System.out.println("No winners " + teamarr[i].isOnDistance());
+            }
+        }
 
     }
 }

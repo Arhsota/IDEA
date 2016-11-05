@@ -6,7 +6,9 @@ public class Animal {
     protected String animalType;
     protected boolean onDistance;
     protected float maxRunDist;
-    protected int age;
+    protected int swim_metres;
+    protected float jump_metres;
+
 
     public boolean isOnDistance() {
         return onDistance;
@@ -22,7 +24,7 @@ public class Animal {
 
     public void getOutOfDistance(String reason){
         onDistance= false;
-        System.out.println("name "+name+" reason"+reason+" fail");
+        System.out.println(name+" reason "+reason+" fail");
     }
 
     public String getName() {

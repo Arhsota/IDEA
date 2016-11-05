@@ -3,22 +3,24 @@
  */
 public class Team extends Animal implements Swimable, Jumpable {
 
-    public Team(String name,String animalType,int age,float maxRunDist) {
+    public Team(String name,String animalType,int swim_metres,float jump_metres,float maxRunDist) {
         this.name = name;
         this.animalType = animalType;
-        this.age = age;
+        this.swim_metres = swim_metres;
+        this.jump_metres = jump_metres;
         this.onDistance = true;
         this.maxRunDist = maxRunDist;
 
         }
 
     public String getAnimalType() { return animalType; }
-    public int getAge() {return age;}
+    public int getSwim() {return swim_metres;}
+    public float getJump() {return jump_metres;}
 
 
     @Override
     public void swim(float dist) {
-        if(dist < 500){
+        if(dist < swim_metres){
             System.out.println(name+" swim ok");
         }else{
             getOutOfDistance("swim");
@@ -27,7 +29,7 @@ public class Team extends Animal implements Swimable, Jumpable {
 
     @Override
     public void jump(float height) {
-        if(height < 1.5f){
+        if(height < jump_metres){
             System.out.println(name+" jump ok");
         }else{
             getOutOfDistance("jump");
