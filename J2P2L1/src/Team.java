@@ -16,7 +16,7 @@ public class Team extends Animal implements Swimable, Jumpable {
     public String getAnimalType() { return animalType; }
     public int getSwim() {return swim_metres;}
     public float getJump() {return jump_metres;}
-
+    public float getRun() {return maxRunDist;}
 
     @Override
     public void swim(float dist) {

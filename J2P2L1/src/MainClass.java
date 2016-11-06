@@ -1,10 +1,8 @@
 /**
  * Created by DNS PC on 03.11.2016.
  * add on by Andrey Sevastyanov on 6.11.2016
- * @author Andrey Sevastyanov
- *
- *
- *
+ * @coauthor Andrey Sevastyanov
+ * Homework Java 2, Lesson 1
  */
 public class MainClass {
     public static void main(String[] args) {
@@ -15,12 +13,14 @@ public class MainClass {
         animals[3] = new Horse("Mary");
 
         Team[] teamarr = new Team[4];
+        // имя игрока, принадлежность, проплыл, прыгнул, пробежал
         teamarr[0] = new Team("Ком1","Команда",20,3.5f,100f);
         teamarr[1] = new Team("Ком2","Команда",30,0.4f,1500f);
         teamarr[2] = new Team("Ком3","Команда",40,0.5f,2000f);
         teamarr[3] = new Team("Ком4","Команда",40,1.6f,1000f);
 
         Course[] crs = new Course [3];
+        //Полоса препятсвий. Огранчение в плавании, прыжкам и бегу
         crs[0] = new CWater(35);
         crs[1] = new CJump(1);
         crs[2] = new CCross(600f);
@@ -48,7 +48,7 @@ public class MainClass {
         System.out.println("Инфа о членах команды: ");
          for (int j = 0; j < teamarr.length; j++) {
              System.out.println(teamarr[j].getName()+" "+teamarr[j].getAnimalType()+"  проплыл "+teamarr[j].getSwim() +
-             " Прыгнул "+teamarr[j].getJump() );
+             " Прыгнул "+teamarr[j].getJump() + " Пробежал " + teamarr[j].getRun());
 
          }
 
