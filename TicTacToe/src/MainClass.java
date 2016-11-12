@@ -59,6 +59,10 @@ public class MainClass extends JFrame {
         jbHumanVsHuman.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    System.out.println("Не реализовано в этой версии!!");
+                    System.exit(0);
+
+
                     ((CardLayout) jpBottom.getLayout()).show(jpBottom, "jpSelectMap");
                 }
             });
