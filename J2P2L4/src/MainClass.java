@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * Created by Andrey Sevastyanov on 15.11.2016.
  *
@@ -7,7 +9,11 @@
  */
 public class MainClass {
     public static void main ( String [] args ) {
-        Form1 w = new Form1 ();
+        try {
+            Form1 w = new Form1 ();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
