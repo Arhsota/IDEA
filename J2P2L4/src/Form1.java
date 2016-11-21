@@ -15,7 +15,7 @@ import java.io.PrintWriter;
  */
 class Form1 extends JFrame {
 
-    Form1() throws IOException {
+       Form1() throws IOException {
         setTitle ( "Test Window" );
         setDefaultCloseOperation ( WindowConstants.EXIT_ON_CLOSE );
         setLayout (null);
@@ -25,19 +25,27 @@ class Form1 extends JFrame {
         add(jp);
         JTextArea jta = new JTextArea ();
         add(jta);
-       // JScrollPane jsp = new JScrollPane (jta );
-       // jp.add ( jsp );
+      //  JScrollPane jsp = new JScrollPane (jta );
+      //  jp.add ( jsp );
         JTextField field = new JTextField ();
         add(field);
-        PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\master\\Documents\\Обучение\\Java 2\\Lesson 4\\1.txt"));
+
         field.addActionListener ( new ActionListener() {
             @Override
             public void actionPerformed ( ActionEvent e ) {
                 //System . out. println ( "Your message: " + field . getText ());
                 //ввод после нажатия ENTER
+                PrintWriter pw = null;
+                try {
+                    pw = new PrintWriter(new FileWriter("C:\\Users\\master\\Documents\\Обучение\\Java 2\\Lesson 4\\1.txt", true));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
                 jta.setText(field.getText());
                 pw.println(field.getText());
-                pw.close();
+                pw.flush();
+                 pw.close();
+
             }
         });
         JButton button = new JButton ( "Send" );
@@ -46,11 +54,22 @@ class Form1 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //ввод после клика по кнопке SEND
-                jta.setText(field.getText());
-                pw.println(field.getText());
-                pw.close();
+                try {
+                    try (PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\master\\Documents\\Обучение\\Java 2\\Lesson 4\\1.txt", true))) {
+                        jta.setText(field.getText());
+                        pw.println(field.getText());
+                        pw.flush();
+                        pw.close();
+                    }
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                System . out. println ( "Your message: " + field . getText ());
+
             }
+
         });
+
         jta.setBounds(20,50,300,50);
         field.setBounds(20,200,350,20);
         button.setBounds(150,250,100,50);
