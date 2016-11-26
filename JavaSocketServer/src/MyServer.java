@@ -35,7 +35,7 @@ public class MyServer {
     }
 
     public void broadcastMsg(String msg) {
-        String str = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+        String str = new SimpleDateFormat("HH:mm:ss ").format(Calendar.getInstance().getTime());
         msg = str + " " + msg;
         for (ClientHandler o : clients) {
             o.sendMsg(msg);
